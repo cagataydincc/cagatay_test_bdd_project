@@ -1,0 +1,31 @@
+project/
+│
+├── features/
+│   ├── steps/
+│   │   ├── login_steps.py
+│   │   ├── home_steps.py
+│   │   └── hooks.py
+│   │
+│   ├── pages/
+│   │   ├── base_page.py
+│   │   ├── login_page.py
+│   │   └── home_page.py
+│   │
+│   ├── environment.py
+│   ├── login.feature
+│   └── home.feature
+│
+├── config/
+│   ├── config.yaml
+│   └── playwright.config.json
+│
+├── helpers/
+│   ├── logger.py
+│   └── utils.py
+│
+├── tests/
+│   └── run_behave.py
+│
+├── requirements.txt
+└── README.md
+├── pytest.ini
