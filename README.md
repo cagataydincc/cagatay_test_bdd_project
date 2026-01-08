@@ -1,0 +1,1 @@
+This project was developed using Python, Playwright, and Pytest-BDD.
