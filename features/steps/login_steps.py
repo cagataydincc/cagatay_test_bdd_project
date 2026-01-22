@@ -28,3 +28,23 @@ def kullanici_basariyla_giris_yapar(page: Page):
                                                # 1. text_content() metni döndürür
                                                # 2. == ile karşılaştırır
 
+
+
+
+@given('kullanıcı login sayfasında')
+def kullanici_login_sayfasinda(page: Page):
+    login_page = LoginPage(page)
+    login_page.goto()
+
+@when(parsers.parse('kullanıcı "{username} ve "{password} ile giriş yapar'))
+def kullanici_giris_yapar(page: Page, username: str, password: str):
+    login_page = LoginPage(page)
+    login_page.username.fill(username)
+    login_page.password.fill(password)
+    login_page.login_button.click()
+
+@then('kullanıcı giriş yapamaz ve hata mesajı görür')
+def kullanici_giris_yapamaz_ve_hata_mesaji_gorur(page: Page):
+    body = page.locator('[data-test="error"]')
+    body.wait_for(state="visible")
+    assert "Epic sadface" in body.inner_text()
